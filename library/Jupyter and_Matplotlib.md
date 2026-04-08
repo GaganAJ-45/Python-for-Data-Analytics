@@ -98,5 +98,31 @@ plt.xticks(x)
 plt.grid(axis = "y", linestyle = "--", linewidth = 0.5 )
 plt.show()
 ```
+#### 2. Bar Chart
 
+- Used to compare values across categories.
+- ✔ Best for: Comparisons
+```python
+import matplotlib.pyplot as plt
+category = ["Grains","fruit","Vegitable","Meat","Dairy"]
+
+values = [10,20,40,30,10]
+plt.bar(category, values, color=["blue","green","orange","red","purple"])
+plt.title("Daily consumtion")
+plt.xlabel("Food")
+plt.ylabel("Quantity")
+plt.show()      
+```
+
+#### 3. Histogram
+
+- Used to show frequency distribution of data.
+```
+data = [1, 2, 2, 3, 3, 3, 4, 5]
+
+plt.hist(data, bins=5)
+plt.title("Histogram")
+plt.show()
+```
+- ✔ Best for: Data distribution
 
