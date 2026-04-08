@@ -39,3 +39,25 @@ print(math.sqrt(16))
 - NumPy           --   	Numerical computing
 - Pandas           --  	Data manipulation
 - Matplotlib       -- 	Data visualization
+
+
+## **📊 Matplotlib Library**
+
+Matplotlib is used for visualizing data using graphs.
+
+Features:
+Create plots, charts, histograms
+Customize graphs (color, markers, labels)
+Works well with NumPy & Pandas
+Installation:
+pip install matplotlib
+Import:
+import matplotlib.pyplot as plt
+📉 Basic Line Plot Example
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [5, 6, 7, 8]
+
+plt.plot(x, y)
+plt.show()
