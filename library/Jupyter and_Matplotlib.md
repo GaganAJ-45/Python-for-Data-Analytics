@@ -49,11 +49,17 @@ Features:
 Create plots, charts, histograms
 Customize graphs (color, markers, labels)
 Works well with NumPy & Pandas
-Installation:
+
+#### Installation:
+```bash
 pip install matplotlib
-Import:
+```
+#### Import:
+```python
 import matplotlib.pyplot as plt
-📉 Basic Line Plot Example
+```
+#### 📉 Basic Line Plot Example
+```python
 import matplotlib.pyplot as plt
 
 x = [1, 2, 3, 4]
@@ -61,3 +67,4 @@ y = [5, 6, 7, 8]
 
 plt.plot(x, y)
 plt.show()
+```
