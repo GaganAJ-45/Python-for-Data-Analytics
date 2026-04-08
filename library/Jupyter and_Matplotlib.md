@@ -18,7 +18,7 @@ A Python library is a collection of pre-written code that helps solve common pro
 👉 Instead of writing everything from scratch, you can reuse functions.
 
 ```python
-Example:
+#Example:
 import math
 print(math.sqrt(16))
 ```
