@@ -27,3 +27,14 @@ print(math.sqrt(16))
 
 4.0
 ```
+
+## *📈 Why Libraries Matter in Data Analytics*
+- ⚡ Faster development
+- 🔁 Reusability of code
+- 📊 Standardized methods
+- 📉 Efficient data handling
+🧰 Core Data Analytics Stack
+Library              	Purpose
+NumPy              	Numerical computing
+Pandas             	Data manipulation
+Matplotlib        	Data visualization
