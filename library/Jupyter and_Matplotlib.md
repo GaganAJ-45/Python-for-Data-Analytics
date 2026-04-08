@@ -8,3 +8,22 @@ Advantages:
 - 📄 Easy documentation with code + text
 - 🎯 Great for demonstration and visualization
 - ✏️ Command mode allows easy editing and execution
+
+---
+
+## *📚 What is a Python Library?*
+
+A Python library is a collection of pre-written code that helps solve common problems.
+
+👉 Instead of writing everything from scratch, you can reuse functions.
+
+```python
+Example:
+import math
+print(math.sqrt(16))
+```
+```python
+✔ Output:
+
+4.0
+```
