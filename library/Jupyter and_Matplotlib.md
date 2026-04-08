@@ -126,3 +126,112 @@ plt.show()
 ```
 - ✔ Best for: Data distribution
 
+#### 4. Scatter Plot
+
+- Used to show relationship between two variables.
+- ✔ Best for: Correlation analysis
+```
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1 = np.array([0,1,2,3,4,5])
+y1 = np.array([20,52,45,56,23,45])
+x2 = np.array([0,1,2,3,4,5])
+y2 = np.array([65,54,23,65,12,32])
+
+
+plt.scatter(x1,y1, color="red",
+             marker="o",
+             s=100,
+             label = "Class A")
+plt.scatter(x2,y2, color="blue",
+             marker="s",
+             label = "Class B")
+
+plt.title("Test score")
+plt.xlabel("Hours Studied")
+plt.ylabel('Grades')
+plt.legend()
+plt.show()
+```
+#### 5.Pie Chart
+
+- Used to represent proportions.
+- ✔ Best for: Percentage distribution
+```
+import matplotlib.pyplot as plt
+categories = ["Gagan","aj","Sahil","Rohit","Satyarth"]
+values =[10,20,40,30,10]
+plt.pie(values, labels=categories,autopct = "%1.1f%%",shadow= True,startangle=90,explode = [0,0,0,0.1,0])
+plt.show()
+```
+
+#### 5.subplot
+
+```
+import matplotlib.pyplot as plt
+import numpy as np
+#Figure = the entire canvas
+#Axes  =  A single plot (Subplot)
+x = np.array([1,2,3,4,5])
+
+figure, axes =plt.subplots(2,2)
+axes[0,0].plot(x,x**2,color ="red")
+axes[0,0].set_title("x**2")
+
+axes[0,1].bar(x,x**2,color="blue")
+axes[0,1].set_title("x**2")
+
+axes[1,0].scatter(x,x**3,color="green")
+axes[1,0].set_title("x**3")
+
+axes[1,1].plot(x,x**4,color="orange")
+axes[1,1].set_title("x**4")
+
+plt.tight_layout()
+plt.show()
+```
+
+### 🎨 Customization in Matplotlib
+
+Customization helps make graphs more readable and visually appealing.
+
+🔧 1. Line Customization
+```
+plt.plot(x, y, color='blue', linestyle='dashed', linewidth=2, marker='o')
+```
+- color → Line color
+- linestyle → solid, dashed, dotted
+- linewidth → Thickness
+- marker → Point symbol
+
+🎯 2. Labels and Title
+```
+plt.title("Graph Title")
+plt.xlabel("X-axis Label")
+plt.ylabel("Y-axis Label")
+```
+🌈 3. Grid and Style
+```
+plt.grid(True)
+```
+- ✔ Helps in better readability
+
+📌 4. Legend
+```
+plt.plot(x, y, label="Data 1")
+plt.legend()
+```
+- ✔ Used when multiple plots are present
+
+🎨 5. Colors and Transparency
+```
+plt.bar(x, y, color='green', alpha=0.7)
+```
+- alpha → Transparency (0 to 1)
+
+📏 6. Figure Size
+```
+plt.figure(figsize=(8, 5))
+```
+✔ Controls graph size
