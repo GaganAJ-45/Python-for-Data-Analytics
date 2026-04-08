@@ -68,3 +68,35 @@ y = [5, 6, 7, 8]
 plt.plot(x, y)
 plt.show()
 ```
+
+---
+
+### 📊 Types of Graphs in Matplotlib
+
+Matplotlib provides multiple types of graphs to visualize different kinds of data effectively.
+
+#### 📈 1. Line Plot
+
+- Used to show trends or changes over time.
+- ✔ Best for: Time-series data, trends
+
+```python
+import matplotlib.pyplot as plt
+x = [2023,2024,2025,2026]
+y =[25,23,16,23]
+y1 = [20,22,18,21]
+y2 = [25,32,48,31]
+
+linestyles = {"marker": ".", "markersize": 10, "markerfacecolor": "red", "markeredgecolor": "red", "linestyle": "solid", "linewidth": 2}
+plt.xlabel("Year",fontsize = 20,family = "Ariel",fontweight = "bold",color = "red")
+plt.ylabel("Class Size",fontsize = 20,family = "Ariel",fontweight = "bold",color = "black")
+plt.title("Class size",fontsize = 20,family = "Ariel",fontweight = "bold",color = "green")
+plt.plot(x, y, color="blue", **linestyles)
+plt.plot(x, y1, color="green", **linestyles)
+plt.plot(x, y2, color="orange", **linestyles)
+plt.xticks(x)
+plt.grid(axis = "y", linestyle = "--", linewidth = 0.5 )
+plt.show()
+```
+
+
