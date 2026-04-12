@@ -217,6 +217,18 @@ NumPy allows you to perform **mathematical operations or functions on an entire 
 - When you pass an array into these functions, it is written into the new function where it is applied
 
 ```python
+import numpy as np
+
+array1d = np.array([1,2,3,4,5,6])
+array1 = np.array([7,8,9,10,11,12])
+array1d[array1d >= 5] = 0
+print(np.sin(array1d))
+print(np.pi)
+print(np.sqrt(array1d))
+print(np.round(array1d))
+print(np.pi * (array1d ** 2))
+
+
 print(np.sqrt(array))      # Square root of each element
 print(np.round(array))     # Round each element
 print(np.sin(array))       # Sine of each element
