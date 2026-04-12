@@ -390,15 +390,6 @@ NumPy is widely used in fields that involve data processing:
 - 📈 **Finance** — numerical computations on large datasets
 - 🔬 **Scientific Research** — simulations and computations
 
----
-
-## 📚 Resources
-
-- 📖 [Official NumPy Documentation](https://numpy.org/doc/)
-- 🎓 [NumPy Quickstart Tutorial](https://numpy.org/doc/stable/user/quickstart.html)
-- 🐍 [Python Official Site](https://www.python.org/)
-
----
 
 <div align="center">
 
