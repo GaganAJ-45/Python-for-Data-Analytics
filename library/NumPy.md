@@ -244,6 +244,18 @@ print(array1 + array2)
 # Output: [5, 7, 9]
 ```
 
+```
+import numpy as np
+array1d = np.array([1,2,3,4,5,6])
+array1 = np.array([7,8,9,10,11,12])
+#element wise operation
+print(array1d + array1)
+print(array1 - array1d)
+print(array1d ==3)
+print(array1d)
+
+```
+
 ---
 
 ## 10. Comparison Operations
