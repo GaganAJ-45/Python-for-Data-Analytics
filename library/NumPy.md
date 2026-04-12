@@ -175,9 +175,10 @@ print(array_2d[0:6,0:2])
 print(array_2d[0:6,::-1])
 print(array_2d[0:2,0:2])
 print(array_2d[3:5,0:2])
+```
 ---
 
-## 5. Advanced Slicing Techniques
+##  5. Advanced Slicing Techniques
 
 ### 🔹 Negative Indexing
 Use negative values to access elements **from the end** of the array.
