@@ -457,3 +457,25 @@ NumPy is widely used in fields that involve data processing:
 🚀 *Happy Learning NumPy!*
 
 </div>
+import numpy as np
+
+array_2d = np.array(
+    [["A","b"], 
+    ["E","f"],
+    ["c","d"],
+    ["g","h"],
+    ["h","i"],
+    ["j","k"]]
+)
+print(array_2d.shape)
+print(array_2d.ndim)
+print(array_2d.size)
+print(array_2d.dtype)
+print(array_2d[0,0])
+print(array_2d[::-1])
+print(array_2d[0:6:2])
+print(array_2d[0:6,0])
+print(array_2d[0:6,0:2])
+print(array_2d[0:6,::-1])
+print(array_2d[0:2,0:2])
+print(array_2d[3:5,0:2])
