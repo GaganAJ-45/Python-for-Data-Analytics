@@ -30,7 +30,6 @@ import numpy as np
 13. [Aggregate Functions](#12-aggregate-functions)
 14. [Boolean Filtering](#13-boolean-filtering)
 
----
 
 ## 🚀 Why NumPy?
 
@@ -54,7 +53,7 @@ Python is very famous for AI, ML, and data science because:
 - It **integrates well** with modern technologies like APIs, DBs, and web apps
 - This makes Python very easy for **building and deploying real-world AI tools**
 
----
+
 
 ## 📐 Array Dimensions & Ranks
 
@@ -66,7 +65,7 @@ In NumPy, the number of dimensions in an array is referred to as its **rank**.
 | 2D   | Rows and columns | A spreadsheet / table |
 | 3D   | Collection of 2D tables | Layers of tables stacked together |
 
----
+
 
 ## 1. Two Dimensional (2D) Arrays
 
@@ -85,7 +84,6 @@ print(array_2d.size)              # Total elements → 9
 print(array_2d[row_index][col_index])  # Access specific element
 ```
 
----
 
 ## 2. Three Dimensional (3D) Arrays
 
@@ -101,7 +99,7 @@ print(array_3d[0, 0, 0])   # Access first element
 print(array_3d[1][0][1])   # Alternate access style
 ```
 
----
+
 
 ## 3. Array Slicing
 
