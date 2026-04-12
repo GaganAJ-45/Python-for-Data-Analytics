@@ -265,6 +265,29 @@ Example:
 (4, 1)  +  (1, 1)  →  (4, 1)   ✅ Compatible
 ```
 
+```python
+import numpy as np
+#broadcating in numpy
+array1d = np.array([[1,2,3,4,5,6]])
+array1 = np.array([[7],[8],[9],[10],[11],[12]])
+print(array1d.shape)
+print(array1.shape)
+
+print(array1d + array1)
+```
+
+#### output
+```
+(1, 6)
+(6, 1)
+[[ 8  9 10 11 12 13]
+ [ 9 10 11 12 13 14]
+ [10 11 12 13 14 15]
+ [11 12 13 14 15 16]
+ [12 13 14 15 16 17]
+ [13 14 15 16 17 18]]
+```
+
 ---
 
 ## 12. Aggregate Functions
