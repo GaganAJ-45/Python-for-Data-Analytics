@@ -186,6 +186,19 @@ array1d = np.array([1, 2, 3, 4])
 print(array1d * 1)    # Multiplies every element by 1
 ```
 
+```python
+import numpy as np
+
+array1d = np.array([1,2,3,4,5,6])
+array1 = np.array([7,8,9,10,11,12])
+print(array1d +1)
+print(array1d - 1)
+print(array1d * 2)
+print(array1d ** 5)
+print(array1d / 2)
+
+```
+
 ### ✅ Why Use Scalar Arithmetic?
 
 | Reason | Benefit |
