@@ -2,7 +2,6 @@
 
 > **NumPy** (Numerical Python) is the foundational library for **numerical computing** in Python. It provides fast arrays, mathematical operations, and vectorized computations that power modern data science, machine learning, and AI.
 
----
 
 ## 📦 Installation
 
@@ -13,8 +12,6 @@ pip install numpy
 ```python
 import numpy as np
 ```
-
----
 
 ## 📌 Table of Contents
 
