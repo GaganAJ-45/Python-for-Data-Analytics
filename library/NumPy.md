@@ -467,6 +467,38 @@ np.e           # 2.71828...
 
 ---
 
+## Using NumPy to generate the random numbers 
+In Integers and Float and Shuffle the Existing array
+```python
+import numpy as np
+rng = np.random.default_rng(seed=2)
+
+print(rng.integers(low=1,high=1001,size=(3,2)))
+
+rng1 = np.random.default_rng(seed=1)
+
+print(rng1.uniform(low=1,high=1001,size=(3,2)))
+
+print(np.random.uniform(low=1,high=1001,size=(3,2)))
+# to shuffle an array
+ar = np.array([1,2,3,4,5])
+np.random.shuffle(ar)
+print(ar)
+
+```
+In this below code generate the 2d array with using the existing array with choice key word using NumPy
+
+```python
+import numpy as np
+rng = np.random.default_rng()
+
+fruit = np.array(["apple","orange","banana","grape","kiwi"])
+#we can use the 'replace =True or Flase' for this maximum values in the array is equal to the size of the array and also can use the probabilty of the specfic values to appear in random to the new array can be modify using the 'p = [0.1,0.2,0.3,0.1,0.2]'
+fruits = rng.choice(fruit,size=(3,3))
+
+print(fruits)
+```
+
 ## 🌍 Where is NumPy Used?
 
 NumPy is widely used in fields that involve data processing:
