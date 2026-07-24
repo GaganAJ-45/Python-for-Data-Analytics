@@ -28,6 +28,7 @@ Click a question to jump straight to its solution and sample output. Try solving
 
 ---
 
+
 ## Solutions
 
 ### 1. Even or Odd
