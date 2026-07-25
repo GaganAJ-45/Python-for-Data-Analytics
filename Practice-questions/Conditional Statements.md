@@ -27,6 +27,7 @@ Click a question to jump straight to its solution and sample output. Try solving
 19. [Given three numbers, find the largest among them.](#19-largest-of-three-numbers)
 20. [Reverse Each Word in a Sentence](#20-Reverse-Each-Word-in-a-Sentence)
 21. [count the number of word in a sentence](#21-count-the-number-of-word-in-a-sentence)
+22. [remove the spaces from the sentence](#22-remove-the-spaces-from-the-sentence)
 
 ---
 
@@ -440,4 +441,10 @@ print(len(a))
 text = "I   love   Python"
 print(text.split(" "))
 print(text.split())
+```
+
+### 22. remove the spaces from the sentence
+```python
+text = "I love Python"
+print(text.replace(" ",""))
 ```
