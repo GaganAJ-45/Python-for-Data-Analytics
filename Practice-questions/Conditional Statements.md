@@ -28,7 +28,7 @@ Click a question to jump straight to its solution and sample output. Try solving
 20. [Reverse Each Word in a Sentence](#20-Reverse-Each-Word-in-a-Sentence)
 21. [count the number of word in a sentence](#21-count-the-number-of-word-in-a-sentence)
 22. [remove the spaces from the sentence](#22-remove-the-spaces-from-the-sentence)
-23. [Print the frequency of every character.](#23-Print-the-frequency-of-every-character.)
+23. [Print the frequency of every character.](#23-Print-the-frequency-of-every-character)
 ---
 
 
