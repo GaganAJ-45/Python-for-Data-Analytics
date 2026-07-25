@@ -25,6 +25,7 @@ Click a question to jump straight to its solution and sample output. Try solving
 17. [Build a simple login system that checks username and password.](#17-simple-login-system)
 18. [Build a simple banking system that validates account, PIN, and withdrawal.](#18-simple-banking-system)
 19. [Given three numbers, find the largest among them.](#19-largest-of-three-numbers)
+20. [Reverse Each Word in a Sentence](#20-Reverse-Each-Word-in-a-Sentence)
 
 ---
 
@@ -414,3 +415,17 @@ else:
 ```
 B is greater
 ```
+
+### 20. Reverse Each Word in a Sentence
+
+## Python Code
+
+```python
+text = "I love Python"
+
+# Reverse the whole string
+print(text[13::-1])
+
+# Reverse each word separately
+reversed_text = text[0::-1] + " " + text[5:1:-1] + " " + text[12:6:-1]
+print(reversed_text)
