@@ -26,6 +26,7 @@ Click a question to jump straight to its solution and sample output. Try solving
 18. [Build a simple banking system that validates account, PIN, and withdrawal.](#18-simple-banking-system)
 19. [Given three numbers, find the largest among them.](#19-largest-of-three-numbers)
 20. [Reverse Each Word in a Sentence](#20-Reverse-Each-Word-in-a-Sentence)
+21. [count the number of word in a sentence](#21-count-the-number-of-word-in-a-sentence)
 
 ---
 
@@ -418,8 +419,6 @@ B is greater
 
 ### 20. Reverse Each Word in a Sentence
 
-## Python Code
-
 ```python
 text = "I love Python"
 
@@ -429,3 +428,16 @@ print(text[13::-1])
 # Reverse each word separately
 reversed_text = text[0::-1] + " " + text[5:1:-1] + " " + text[12:6:-1]
 print(reversed_text)
+
+```
+### 21. count the number of word in a sentence
+```python
+text1 = "I love Python"
+a = text1.split()
+print(a)
+print(len(a))
+
+text = "I   love   Python"
+print(text.split(" "))
+print(text.split())
+```
