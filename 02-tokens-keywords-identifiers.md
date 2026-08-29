@@ -1,7 +1,4 @@
 # Python Tokens — Keywords, Identifiers, Literals, Operators, Separators
-> Foundation Notes — Interview Ready
-
----
 
 ## 1. What is a Token?
 
