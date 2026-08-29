@@ -1,143 +1,167 @@
-## **Python Basics - 1**
+# Variables and Data Types in Python
 
-### **1. Variables in Python**
-Variables in Python are used to store data values. They are created when you assign a value to them, and you don’t need to declare their type (Python is dynamically typed).
+## 1. What is a Variable?
 
-#### **Syntax for Variable Assignment:**
-```python
-x = 5  # Assigning an integer value to the variable x
-y = "Hello"  # Assigning a string value to the variable y
+A variable is a **name that refers to an object stored in memory**. In Python, you don't store values inside variables — you store references (pointers) to objects.
+
+```text
+Variable        Object in Memory
+   a  ─────────────→  10
 ```
 
-#### **Variable Naming Rules:**
-- Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_).
-- Variable names must start with a letter or an underscore.
-- Variable names are case-sensitive (`Name` and `name` are different).
-
-#### **Example:**
 ```python
-age = 25
-name = "John"
-is_student = True
+a = 10        # 'a' refers to the integer object 10
+name = "AJ"   # 'name' refers to the string object "AJ"
 ```
 
-### **2. Data Types in Python**
-Python has various built-in data types. Some common ones are:
-- **int**: For integers (e.g., 1, -3, 100)
-- **float**: For floating-point numbers (e.g., 3.14, -0.001)
-- **str**: For strings (e.g., "Hello", "Python")
-- **bool**: For boolean values (True or False)
+> **Interview answer:** *"In Python, a variable is not a container — it is a label or reference that points to an object in memory. When you assign a variable, you are making that name point to an object."*
 
-#### **Type Checking:**
-You can use the `type()` function to check the type of a variable.
+---
+
+## 2. Variable Assignment Types
+
 ```python
-x = 10
-print(type(x))  # Output: <class 'int'>
-```
-
-### **3. Type Conversion**
-Python allows you to convert between data types using functions like `int()`, `float()`, `str()`, etc.
-
-#### **Example:**
-```python
-x = "10"  # x is a string
-y = int(x)  # Convert string to integer
-z = float(y)  # Convert integer to float
-print(z)  # Output: 10.0
-```
-
-### **4. Arithmetic Operators**
-Python supports basic arithmetic operations like addition, subtraction, multiplication, division, and more.
-
-#### **Common Operators:**
-- `+` (Addition)
-- `-` (Subtraction)
-- `*` (Multiplication)
-- `/` (Division)
-- `//` (Floor Division)
-- `%` (Modulus)
-- `**` (Exponentiation)
-
-#### **Examples:**
-```python
-a = 10
-b = 3
-print(a + b)  # Output: 13(Addition)
-print(a - b)  # Output: 7(Substraction)
-print(a * b)  # Output: 30 (Multiplication)
-print(a / b)  # Output: 3.3333...(True Division)
-print(a // b)  # Output: 3 (Floor Division)
-print(a % b)  # Output: 1 (Modulus)
-print(a ** b)  # Output: 1000 (Exponentiation)
-```
-### **5. Assigning Values to Multiple Variables**
-Python allows you to assign values to multiple variables in a single line.
-
-#### **Example:**
-```python
-x, y, z = 10, 20, 30
-print(x)  # Output: 10
-print(y)  # Output: 20
-print(z)  # Output: 30
-```
-
-You can also assign the same value to multiple variables in one line:
-```python
-x = y = z = 100
-print(x, y, z)  # Output: 100 100 100
-# simple assignment
+# Simple assignment
 a = 5
 
-# chained assignment
-b = c = 5
+# Chained assignment — all refer to the SAME object
+b = c = 10
+print(b, c)       # Output: 10 10
+print(b is c)     # Output: True — same object
 
-# multiple assignment
-d,e = 1,2
+# Multiple assignment — one line, multiple variables
+x, y, z = 1, 2, 3
+print(x, y, z)    # Output: 1 2 3
 
-# reassigning / swaping
-g=a
+# Swap two variables — Pythonic way (no temp variable needed)
+a, b = 10, 20
+a, b = b, a
+print(a, b)       # Output: 20 10
 ```
 
-### **6. Variable Reassignment**
-You can change the value of a variable at any point in your program.
+> **Interview tip:** *"Python's swap `a, b = b, a` works because the right side is fully evaluated first as a tuple `(b, a)`, then unpacked into `a` and `b`."*
 
-#### **Example:**
+---
+
+## 3. Variable Naming Rules
+
+| Rule | ✅ Valid | ❌ Invalid |
+|---|---|---|
+| Letters, digits, underscores only | `student_1` | `student@1` |
+| Cannot start with a digit | `name1` | `1name` |
+| No spaces | `first_name` | `first name` |
+| Cannot be a keyword | `my_class` | `class` |
+| Case-sensitive | `age` and `Age` are different | — |
+
+---
+
+## 4. Naming Conventions (PEP 8)
+
+| Type | Convention | Example |
+|---|---|---|
+| Variables & functions | `snake_case` | `student_name`, `get_data` |
+| Classes | `PascalCase` | `StudentProfile` |
+| Constants | `UPPER_CASE` | `MAX_SIZE = 100` |
+| Private (convention) | `_single_underscore` | `_helper` |
+
+### Constants in Python
+Python has **no true constants** — nothing stops you from changing a value written in `UPPER_CASE`. It is purely a **convention** to signal to other developers: *"don't change this."*
+
 ```python
-x = 5
-print(x)  # Output: 5
+PI = 3.14159          # convention: treat as constant
+MAX_CONNECTIONS = 100 # convention: treat as constant
+
+PI = 99  # Python won't stop you — but don't do this
+```
+
+---
+
+## 5. Dynamic Typing
+
+Python is **dynamically typed** — the same variable can hold different types at different times. The type is attached to the **object**, not the variable.
+
+```python
 x = 10
-print(x)  # Output: 10
-```
-----
-----
-# Python Variables and Object References
+print(type(x))   # Output: <class 'int'>
 
-In Python, a variable is better understood as a **name that refers to an object** rather than a box that directly stores a value.
+x = "hello"
+print(type(x))   # Output: <class 'str'>
 
-```text
-Variable        Object
+x = [1, 2, 3]
+print(type(x))   # Output: <class 'list'>
 
-a ───────────→  10
+x = True
+print(type(x))   # Output: <class 'bool'>
 ```
 
-Here:
-
-- `a` → Variable / reference
-- `10` → Object
-- `10` is an `int` object
+The variable `x` just keeps pointing to different objects — each with its own type.
 
 ---
 
-## 1. Assigning One Variable to Another
+## 6. Data Types in Python
 
-Consider:
+```
+Python Data Types
+ ├── Primitive (Single value)
+ │    ├── int
+ │    ├── float
+ │    ├── complex
+ │    ├── bool
+ │    └── str
+ └── Collection (Multiple values)
+      ├── list
+      ├── tuple
+      ├── set
+      └── dict
+ 
+Special: NoneType (None)
+```
+
+| Type | Example | Mutable? | Ordered? |
+|---|---|---|---|
+| `int` | `89` | ❌ | — |
+| `float` | `3.14` | ❌ | — |
+| `complex` | `3+4j` | ❌ | — |
+| `bool` | `True`, `False` | ❌ | — |
+| `str` | `"hello"` | ❌ | ✅ |
+| `list` | `[1, 2, 3]` | ✅ | ✅ |
+| `tuple` | `(1, 2, 3)` | ❌ | ✅ |
+| `set` | `{1, 2, 3}` | ✅ | ❌ |
+| `dict` | `{"a": 1}` | ✅ | ✅ (Python 3.7+) |
+| `NoneType` | `None` | ❌ | — |
+
+```python
+print(type(89))          # <class 'int'>
+print(type(3.14))        # <class 'float'>
+print(type(3+4j))        # <class 'complex'>
+print(type(True))        # <class 'bool'>
+print(type("hello"))     # <class 'str'>
+print(type([1, 2]))      # <class 'list'>
+print(type((1, 2)))      # <class 'tuple'>
+print(type({1, 2}))      # <class 'set'>
+print(type({"a": 1}))    # <class 'dict'>
+print(type(None))        # <class 'NoneType'>
+```
+
+---
+
+## 7. Variables as Object References
+
+This is the most important mental model for Python interviews.
 
 ```python
 a = 10
-b = a
 ```
 
-Both `a` and `b` refer to the **same object**.
+```text
+        ┌───────┐
+a ─────→│  10   │  (int object at some memory address)
+        └───────┘
+```
+
+```python
+b = a    # b now refers to the SAME object as a
+```
 
 ```text
         ┌───────┐
@@ -147,40 +171,29 @@ a ─────→│  10   │
 b ───────────┘
 ```
 
-We can check this using `is`:
+Prove it with `id()` — shows the memory address of the object:
 
 ```python
 a = 10
 b = a
 
-print(a == b)   # True
-print(a is b)   # True
+print(id(a))       # e.g. 140712345678912
+print(id(b))       # same address — same object
+print(a is b)      # True — same object in memory
 ```
-
-- `==` → Checks whether the values are equal.
-- `is` → Checks whether both variables refer to the same object.
 
 ---
 
-## 2. Immutable Object
+## 8. Immutable Objects
 
-An **immutable object cannot be changed after it is created**.
+An **immutable object cannot be modified** after it is created. When you "change" an immutable variable, Python creates a **new object** and makes the variable point to it.
 
-Examples of immutable types include:
-
-- `int`
-- `float`
-- `str`
-- `tuple`
-
-### Example with `int`
+Types: `int`, `float`, `str`, `tuple`, `bool`, `complex`
 
 ```python
 a = 10
 b = a
 ```
-
-Initially:
 
 ```text
         ┌───────┐
@@ -190,305 +203,262 @@ a ─────→│  10   │
 b ───────────┘
 ```
 
-Now:
-
 ```python
-b = 20
+b = 20    # NOT modifying 10 — creating a new object 20
 ```
-
-The `10` object is not changed.
-
-Instead, `b` is reassigned to another object:
 
 ```text
         ┌───────┐
-a ─────→│  10   │
+a ─────→│  10   │   (unchanged)
         └───────┘
 
         ┌───────┐
-b ─────→│  20   │
+b ─────→│  20   │   (new object)
         └───────┘
 ```
 
-Therefore:
-
 ```python
-print(a)   # 10
-print(b)   # 20
+print(a)        # Output: 10  (a is unaffected)
+print(b)        # Output: 20
+print(a is b)   # Output: False (different objects now)
 ```
-
-### Important
-
-```python
-b = 20
-```
-
-is **reassignment**, not modification of the integer `10`.
 
 ---
 
-## 3. Mutable Object
+## 9. Mutable Objects
 
-A **mutable object can be changed after it is created**.
+A **mutable object can be changed** after it is created. The object itself is modified — the variable still points to the same object.
 
-Examples include:
-
-- `list`
-- `set`
-- `dict`
-
-### Example with `list`
+Types: `list`, `dict`, `set`
 
 ```python
 a = [10, 20, 30]
-b = a
+b = a              # both refer to the SAME list
 ```
-
-Both variables refer to the same list:
 
 ```text
         ┌────────────────┐
 a ─────→│ [10, 20, 30]   │
         └────────────────┘
-             ↑
-b ───────────┘
+                ↑
+b ──────────────┘
 ```
-
-Now modify the list through `b`:
 
 ```python
-b[0] = 100
+b[0] = 100    # modifying the SAME object
 ```
-
-The existing list is changed:
 
 ```text
-        ┌─────────────────┐
-a ─────→│ [100, 20, 30]   │
-        └─────────────────┘
-             ↑
-b ───────────┘
+        ┌──────────────────┐
+a ─────→│ [100, 20, 30]    │
+        └──────────────────┘
+                ↑
+b ──────────────┘
 ```
-
-Therefore:
 
 ```python
-print(a)
-print(b)
+print(a)        # Output: [100, 20, 30]  ← a changed too!
+print(b)        # Output: [100, 20, 30]
+print(a is b)   # Output: True — still the same object
 ```
-
-Output:
-
-```text
-[100, 20, 30]
-[100, 20, 30]
-```
-
-Both variables see the change because they refer to the **same list object**.
 
 ---
 
-## 4. Reassignment vs Modification
+## 10. Reassignment vs Modification
 
-This distinction is very important.
+This is one of the **most commonly asked** interview questions on Python variables.
 
-### Reassignment
+### Reassignment — makes variable point to a NEW object
 
 ```python
 a = [10, 20]
 b = a
 
-b = [30, 40]
+b = [30, 40]   # b now points to a completely new list
 ```
-
-Here, `b` is simply made to refer to a new list.
 
 ```text
-a ─────→ [10, 20]
-
-b ─────→ [30, 40]
+a ─────→ [10, 20]   (original — unaffected)
+b ─────→ [30, 40]   (new object)
 ```
 
-The original list is not modified.
+```python
+print(a)        # Output: [10, 20]  (unchanged)
+print(b)        # Output: [30, 40]
+print(a is b)   # Output: False
+```
 
----
-
-### Modification
+### Modification — changes the EXISTING object
 
 ```python
 a = [10, 20]
 b = a
 
-b[0] = 100
+b[0] = 100     # modifies the existing object that both a and b point to
 ```
-
-Here, the existing list is modified.
 
 ```text
 a ─────→ [100, 20]
-             ↑
-b ───────────┘
+              ↑
+b ────────────┘
 ```
 
-Both `a` and `b` see the modification.
+```python
+print(a)        # Output: [100, 20]  (a is affected!)
+print(b)        # Output: [100, 20]
+print(a is b)   # Output: True
+```
+
+> **The key question to ask yourself:**
+> - `b = something` → **Reassignment** — only `b` is affected
+> - `b[i] = something` or `b.method()` → **Modification** — all variables pointing to that object are affected
 
 ---
 
-## 5. `==` vs `is`
+## 11. `==` vs `is`
 
-These operators have different purposes.
-
-### `==` — Value Equality
-
-```python
-a = [10, 20]
-b = [10, 20]
-
-print(a == b)
-```
-
-Output:
-
-```text
-True
-```
-
-Why?
-
-Because both lists contain the same values.
-
-```text
-a → [10, 20]
-b → [10, 20]
-
-Same contents → True
-```
-
----
-
-### `is` — Object Identity
-
-```python
-a = [10, 20]
-b = [10, 20]
-
-print(a is b)
-```
-
-Output:
-
-```text
-False
-```
-
-Why?
-
-Because these are two separate list objects:
-
-```text
-        ┌────────────┐
-a ─────→│ [10, 20]   │
-        └────────────┘
-
-        ┌────────────┐
-b ─────→│ [10, 20]   │
-        └────────────┘
-```
-
-They have the same contents, but they are **different objects**.
-
-Therefore:
-
-```python
-a == b    # True
-a is b    # False
-```
-
----
-
-## 6. Same Object vs Same Value
-
-### Same object
-
-```python
-a = [10, 20]
-b = a
-```
-
-```python
-a == b    # True
-a is b    # True
-```
-
-Both variables refer to the same object.
-
----
-
-### Different objects with the same value
-
-```python
-a = [10, 20]
-b = [10, 20]
-```
-
-```python
-a == b    # True
-a is b    # False
-```
-
-The values are equal, but the objects are different.
-
----
-
-## 7. Mutable vs Immutable
-
-| Type | Example | Mutable? |
+| Operator | Checks | Question it answers |
 |---|---|---|
-| `int` | `10` | ❌ Immutable |
-| `float` | `10.5` | ❌ Immutable |
-| `str` | `"Python"` | ❌ Immutable |
-| `tuple` | `(10, 20)` | ❌ Immutable |
-| `list` | `[10, 20]` | ✅ Mutable |
-| `set` | `{10, 20}` | ✅ Mutable |
-| `dict` | `{"a": 10}` | ✅ Mutable |
+| `==` | Value equality | "Do they contain the same data?" |
+| `is` | Object identity | "Are they literally the same object in memory?" |
+
+```python
+# Case 1 — same object
+a = [10, 20]
+b = a
+
+print(a == b)    # True  — same values
+print(a is b)    # True  — same object
+
+# Case 2 — different objects, same values
+a = [10, 20]
+b = [10, 20]
+
+print(a == b)    # True  — same values
+print(a is b)    # False — different objects in memory
+print(id(a) == id(b))  # False — different memory addresses
+```
+
+```text
+Case 2 in memory:
+
+        ┌────────────┐
+a ─────→│ [10, 20]   │   (object at address X)
+        └────────────┘
+
+        ┌────────────┐
+b ─────→│ [10, 20]   │   (object at address Y)
+        └────────────┘
+```
+
+**Golden rule:** Use `==` for value comparison. Use `is` only to check against `None`.
+
+```python
+# Correct use of 'is'
+value = None
+if value is None:
+    print("No value assigned")
+```
 
 ---
 
-## 8. The Main Mental Model
-
-The most useful way to think about Python variables is:
-
-```text
-Variable → Reference → Object
-```
-
-For example:
+## 12. Global vs Local Variables
 
 ```python
-a = [10, 20, 30]
+x = 10           # global variable — defined outside all functions
+
+def show():
+    x = 20       # local variable — only exists inside this function
+    print(x)     # Output: 20 (uses local x)
+
+show()
+print(x)         # Output: 10 (global x is unchanged)
+```
+
+To modify a global variable inside a function, use the `global` keyword:
+
+```python
+x = 10
+
+def update():
+    global x
+    x = 99       # now modifying the global x
+
+update()
+print(x)         # Output: 99
+```
+
+> **Interview answer:** *"A local variable exists only within the function it is defined in. A global variable is defined at the module level and accessible everywhere. To modify a global variable inside a function, you must declare it with the `global` keyword."*
+
+---
+
+## 13. The `del` Keyword
+
+`del` removes a variable name from the namespace. The object it pointed to may be garbage collected if nothing else references it.
+
+```python
+a = [1, 2, 3]
 b = a
+
+del a           # removes the name 'a', but the list object still exists
+                # because 'b' still refers to it
+
+print(b)        # Output: [1, 2, 3]  — object is still alive
+
+del b           # now nothing refers to the list — Python will garbage collect it
+
+print(b)        # NameError: name 'b' is not defined
 ```
 
-means:
+---
 
-```text
-        ┌────────────────┐
-a ─────→│ [10, 20, 30]   │
-        └────────────────┘
-             ↑
-b ───────────┘
+## 14. `None` — Emptying a Variable
+
+Use `None` to represent "no value" or to reset a variable:
+
+```python
+result = None         # no value yet
+
+result = calculate()  # assign later when ready
+
+# Check if it has a value
+if result is None:
+    print("Not calculated yet")
 ```
 
-So:
+---
 
-> `b = a` means **"make `b` refer to the same object that `a` refers to."**
+## Mutable vs Immutable — Full Summary
 
-### Remember
+| Type | Mutable? | What happens on "change"? |
+|---|---|---|
+| `int` | ❌ | New object created |
+| `float` | ❌ | New object created |
+| `str` | ❌ | New object created |
+| `tuple` | ❌ | New object created |
+| `bool` | ❌ | New object created |
+| `list` | ✅ | Existing object modified |
+| `dict` | ✅ | Existing object modified |
+| `set` | ✅ | Existing object modified |
 
-- `==` → **Are the values equal?**
-- `is` → **Are they the same object?**
-- Mutable → **Object can be modified**
-- Immutable → **Object cannot be modified**
-- `b = a` → **Both refer to the same object**
-- `b = new_value` → **Reassignment**
-- `b[index] = new_value` → **Modification of a mutable object**
+---
+
+## Interview Short Answers
+
+**Q: What is a variable in Python?**
+> A variable in Python is not a container — it is a reference or label that points to an object in memory. When you write `a = 10`, you are making the name `a` point to the integer object `10` stored in memory.
+
+**Q: What is the difference between mutable and immutable objects?**
+> Immutable objects cannot be changed after creation — types like int, float, str, and tuple. When you reassign them, Python creates a new object. Mutable objects like list, dict, and set can be changed in place — all variables pointing to that object will see the change.
+
+**Q: What is the difference between `==` and `is`?**
+> `==` compares values — it checks if two objects contain the same data. `is` compares identity — it checks if two variables point to the exact same object in memory. You should use `==` for value comparison and `is` only for checking against `None`.
+
+**Q: What is the difference between reassignment and modification?**
+> Reassignment (`b = new_value`) makes the variable point to a completely new object — the original object is unaffected. Modification (`b[0] = value` or `b.append()`) changes the existing object in place — all variables pointing to that object will see the change.
+
+**Q: What is a global variable? How do you modify it inside a function?**
+> A global variable is defined at the module level and accessible throughout the program. To modify it inside a function, you must use the `global` keyword — otherwise Python treats any assignment inside the function as a new local variable.
+
+**Q: Does Python have constants?**
+> Python has no built-in constant type. The convention is to write constant names in UPPER_CASE to signal to other developers that the value should not be changed — but Python does not enforce this. Libraries like `typing.Final` can be used to annotate intended constants.
