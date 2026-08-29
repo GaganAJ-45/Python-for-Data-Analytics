@@ -1,5 +1,4 @@
 # Introduction to Python Programming
-> Foundation Notes — Interview Ready
 
 ---
 
