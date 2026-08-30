@@ -1,7 +1,4 @@
 # Operators in Python
-> Foundation Notes — Interview Ready
-
----
 
 ## What are Operators?
 
