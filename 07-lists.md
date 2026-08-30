@@ -1,7 +1,4 @@
 # Lists in Python
-> Complete Reference Notes
-
----
 
 ## 1. What is a List?
 
