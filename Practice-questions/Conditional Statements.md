@@ -182,7 +182,6 @@ elif (70 <= percentage_of_stu <= 79):
 else:
     print("The Student just passed")
 ```
-> Note: fixed the original range checks (`80 < ... < 89` skipped exactly 80 and 89) to use `<=` so boundary values are included.
 
 **Sample input:** `500`, `460`
 **Output:**
@@ -225,7 +224,6 @@ elif (b is True):
 else:
     print("the given number is not divisible by 5 or 3")
 ```
-> Note: added the missing `else` branch — the original had no output for numbers divisible by neither.
 
 **Sample input:** `15`
 **Output:**
@@ -243,7 +241,6 @@ elif (char >= "a" and char <= "z"):
 else:
     print("other")
 ```
-> Note: changed `< "Z"` and `< "z"` to `<=` so "Z" and "z" themselves are classified correctly.
 
 **Sample input:** `G`
 **Output:**
@@ -276,7 +273,6 @@ elif (month == 2):
     else:
         print("valid date" if day <= 28 else "invalid date")
 ```
-> Note: fixed the non-leap-February check — original said `day < 29` (which wrongly allowed day 0) and should be `day <= 28`.
 
 **Sample input:** `29`, `2`, `2024`
 **Output:**
@@ -352,7 +348,7 @@ else:
 username = input("Enter The User Name: ")
 Password = int(input("Enter The Password: "))
 name = "Gagan_a_j"
-password_user = 4522
+password_user = 2222
 
 if (username == name):
     if (password_user == Password):
@@ -362,7 +358,7 @@ if (username == name):
 else:
     print("Enter the correct User name")
 ```
-**Sample input:** `Gagan_a_j`, `4522`
+**Sample input:** `Gagan_a_j`, `2222`
 **Output:**
 ```
 Login Successful
