@@ -1,6 +1,6 @@
 # Python Practice: Conditional Statements (if / elif / else)
 
-Daily practice problems using `if`, `elif`, `else`, and nested conditionals.
+practice problems using `if`, `elif`, `else`, and nested conditionals.
 
 Click a question to jump straight to its solution and sample output. Try solving it yourself first! If you spot a bug, have a better approach, or have a doubt about any solution — open an issue or drop a comment.
 
