@@ -1,4 +1,6 @@
 # Operators in Python
+> Foundation Notes — Interview Ready
+
 ---
 
 ## What are Operators?
@@ -7,7 +9,7 @@ Operators are **special symbols** that perform operations on values and variable
 
 ```python
 result = 10 + 5   # Here '+' is the operator
-#        ^   ^--- operands
+#        ^   ^─── operands
 #        operator
 ```
 
@@ -95,6 +97,8 @@ Used to **assign values to variables**. The basic one is `=`. Compound operators
 | `*=` | Multiply and assign | `x *= 4` | `x = x * 4` |
 | `/=` | Divide and assign | `x /= 6` | `x = x / 6` |
 | `%=` | Modulus and assign | `x %= 3` | `x = x % 3` |
+| `**=` | Exponent and assign | `x **= 2` | `x = x ** 2` |
+| `//=` | Floor div and assign | `x //= 3` | `x = x // 3` |
 
 **Where to use:**
 - `=` → Storing any value in a variable
@@ -102,10 +106,11 @@ Used to **assign values to variables**. The basic one is `=`. Compound operators
 - `-=` → Countdown timers, decreasing stock/inventory
 - `*=` → Scaling values, applying multipliers
 - `/=` → Averaging, normalizing values
-- `%=` → Keeping a value within a range
+- `**=` → Repeated squaring, power calculations
+- `//=` → Integer division in place, pagination logic
 
 ```python
-x = 5          # Assigns 5 to x
+x = 5
 
 x += 3         # x = x + 3 → x is now 8
 print(x)       # Output: 8
@@ -118,6 +123,13 @@ print(x)       # Output: 24
 
 x /= 6         # x = x / 6 → x is now 4.0
 print(x)       # Output: 4.0
+
+x = 3
+x **= 2        # x = x ** 2 → x is now 9
+print(x)       # Output: 9
+
+x //= 2        # x = x // 2 → x is now 4
+print(x)       # Output: 4
 
 # Real use: accumulating a total in a loop
 total = 0
@@ -141,14 +153,14 @@ a = [1, 2, 3]
 b = a           # b points to the same list as a
 a += [4]
 print(a)        # Output: [1, 2, 3, 4]
-print(b)        # Output: [1, 2, 3, 4]  <-- b changed too! (same object)
+print(b)        # Output: [1, 2, 3, 4]  ← b changed too! (same object)
 
 # With an INT (immutable) — += creates a NEW object
 x = 5
 y = x           # y points to the same int as x
 x += 1
 print(x)        # Output: 6
-print(y)        # Output: 5  <-- y is unaffected (new object was created for x)
+print(y)        # Output: 5  ← y is unaffected (new object was created for x)
 ```
 
 > **Why this matters:** Mutable types (list, dict, set) share references. Immutable types
@@ -267,7 +279,6 @@ print(0 or "")       # Output: ""  (both falsy → returns last one)
 name = None
 display_name = name or "Guest"
 print(display_name)  # Output: Guest
-# If name is None (falsy), falls back to "Guest"
 ```
 
 > **Short-circuit** means Python stops evaluating as soon as the result is determined.
@@ -313,20 +324,18 @@ if value is None:
 ### ⚠️ Gotcha 1 — Small Integer Caching (-5 to 256)
 
 ```python
-# Python pre-caches small integers (-5 to 256) to save memory
 x = 100
 y = 100
-print(x is y)    # Output: True  (same cached object)
+print(x is y)    # Output: True  (same cached object — always)
 
 x = 1000
 y = 1000
-print(x is y)    # Output: False in REPL / may be True inside a .py script
-                 # Because CPython optimizes literals within the same script
+print(x is y)    # Output: False in REPL / True inside a .py script
 ```
 
 > ⚠️ This output is **environment-dependent**:
 > - In the **interactive shell (REPL)** → `False` for large integers
-> - Inside a **.py script** → often `True` (CPython reuses objects in same code block)
+> - Inside a **.py script** → often `True` (CPython reuses same literal objects)
 > Always use `==` to compare values. Never rely on `is` for numbers.
 
 ### ⚠️ Gotcha 2 — String Interning
@@ -334,28 +343,16 @@ print(x is y)    # Output: False in REPL / may be True inside a .py script
 ```python
 s1 = "hello"
 s2 = "hello"
-print(s1 is s2)     # Output: True  (short strings are interned/reused)
+print(s1 is s2)     # Output: True  (short strings interned/reused)
 
 s3 = "hello world!"
 s4 = "hello world!"
 print(s3 is s4)     # Output: False in REPL / may be True inside .py script
 ```
 
-> ⚠️ Same environment-dependent behavior as integers above.
-> Python interns simple string literals to save memory, but this is an
-> **implementation detail** — never write code that depends on it.
+> ⚠️ Same environment-dependent behavior. Never rely on `is` for strings.
 
-**Golden rule for interviews:** Use `==` for value comparison. Use `is` only for `None`.
-
-```python
-# Correct
-if result is None:
-    print("Empty")
-
-# Wrong — don't do this
-if result is 10:    # Unreliable!
-    print("Ten")
-```
+**Golden rule:** Use `==` for value comparison. Use `is` only for `None`.
 
 ---
 
@@ -383,12 +380,6 @@ print(6 not in my_list)      # Output: True
 print("P" in my_string)      # Output: True
 print("z" not in my_string)  # Output: True
 
-# Real use: allowed file types
-filename = "photo.jpg"
-allowed = [".jpg", ".png", ".gif"]
-if any(filename.endswith(ext) for ext in allowed):
-    print("Valid file")      # Output: Valid file
-
 # Real use: word search
 sentence = "Python is fun"
 if "Python" in sentence:
@@ -410,7 +401,7 @@ print("name" in my_dict.keys())   # Output: True  (same as default behavior)
 
 ## 7. Bitwise Operators
 
-Operate directly on **binary (bit-level) representations** of integers. Each integer is stored as bits (0s and 1s) in memory, and bitwise operators manipulate those bits.
+Operate directly on **binary (bit-level) representations** of integers.
 
 | Operator | Name | Example | Result |
 |---|---|---|---|
@@ -425,8 +416,8 @@ Operate directly on **binary (bit-level) representations** of integers. Each int
 - `&` → Checking flags/permissions, checking even/odd
 - `|` → Setting flags/permissions
 - `^` → Toggling bits, swapping values without temp variable
-- `~` → Inverting bits (used in masking operations)
-- `<<` `>>` → Fast multiply/divide by powers of 2, low-level optimizations
+- `~` → Inverting bits (masking operations)
+- `<<` `>>` → Fast multiply/divide by powers of 2
 
 ### How it works (binary breakdown):
 
@@ -434,12 +425,12 @@ Operate directly on **binary (bit-level) representations** of integers. Each int
 a = 5  →  binary: 101
 b = 3  →  binary: 011
 
-& (AND)  → both bits must be 1  →  101 & 011 = 001 = 1
-| (OR)   → at least one bit 1   →  101 | 011 = 111 = 7
-^ (XOR)  → bits must be different → 101 ^ 011 = 110 = 6
-~ (NOT)  → flips all bits        →  ~5 = -(5+1) = -6
-<< 1     → shift left by 1       →  101 becomes 1010 = 10  (like x * 2)
->> 1     → shift right by 1      →  101 becomes 010  = 2   (like x // 2)
+& (AND)  → both bits must be 1    →  101 & 011 = 001 = 1
+| (OR)   → at least one bit is 1  →  101 | 011 = 111 = 7
+^ (XOR)  → bits must be different →  101 ^ 011 = 110 = 6
+~ (NOT)  → flips all bits         →  ~5 = -(5+1) = -6
+<< 1     → shift left by 1        →  101 becomes 1010 = 10  (like x * 2)
+>> 1     → shift right by 1       →  101 becomes 010  = 2   (like x // 2)
 ```
 
 ```python
@@ -465,16 +456,48 @@ print(n & 1)     # Output: 0 → even (last bit is 0)
 
 # 2. Swap two numbers WITHOUT a temp variable using XOR
 a, b = 5, 9
-a = a ^ b        # a becomes 5 XOR 9
-b = a ^ b        # b becomes original a
-a = a ^ b        # a becomes original b
+a = a ^ b
+b = a ^ b
+a = a ^ b
 print(a, b)      # Output: 9 5
 
-# 3. Fast multiply/divide by powers of 2 using shifts
+# 3. Fast multiply/divide by powers of 2
 print(5 << 1)    # Output: 10   same as 5 * 2
 print(5 << 2)    # Output: 20   same as 5 * 4
 print(20 >> 2)   # Output: 5    same as 20 // 4
 ```
+
+---
+
+## 8. Walrus Operator `:=` (Python 3.8+)
+
+The walrus operator **assigns a value AND returns it** in a single expression. It lets you assign inside conditions, loops, and comprehensions.
+
+**Where to use:** Avoiding double evaluation — when you need to use a computed value both in a condition and inside the block.
+
+```python
+# Without walrus — computing len() twice
+data = [1, 2, 3, 4, 5]
+if len(data) > 3:
+    print(f"List is long: {len(data)} items")   # len() called twice
+
+# With walrus — compute once, reuse
+if (n := len(data)) > 3:
+    print(f"List is long: {n} items")   # Output: List is long: 5 items
+#    ^^ assigns len(data) to n AND checks if > 3
+
+# Real use: reading input until user types "quit"
+while (user_input := input("Enter command: ")) != "quit":
+    print(f"You typed: {user_input}")
+
+# Real use: in a while loop with a computed condition
+import random
+while (num := random.randint(1, 10)) != 5:
+    print(f"Got {num}, trying again...")
+print("Got 5!")
+```
+
+> **Interview tip:** The walrus operator `:=` is called the walrus operator because `:=` looks like the eyes and tusks of a walrus. It was introduced in Python 3.8. Use it to make code cleaner when you need to assign and check a value at the same time.
 
 ---
 
@@ -497,6 +520,9 @@ print(20 >> 2)   # Output: 5    same as 20 // 4
 *=   # Multiply and assign
 /=   # Divide and assign
 %=   # Modulus and assign
+**=  # Exponent and assign
+//=  # Floor divide and assign
+:=   # Walrus — assign and return (Python 3.8+)
 
 # COMPARISON (always return True or False)
 ==   # Equal to
@@ -532,30 +558,49 @@ not in   # Value does not exist in sequence
 
 ## Operator Precedence (High to Low)
 
-When multiple operators appear in one expression, Python follows this order:
-
 ```
-1. ()          → Parentheses (highest priority)
-2. **          → Exponentiation
-3. ~           → Bitwise NOT
-4. * / // %   → Multiplication, Division, Floor Div, Modulus
-5. + -         → Addition, Subtraction
-6. << >>       → Bitwise Shifts
-7. &           → Bitwise AND
-8. ^           → Bitwise XOR
-9. |           → Bitwise OR
+1.  ()            → Parentheses (highest priority)
+2.  **            → Exponentiation
+3.  ~             → Bitwise NOT
+4.  * / // %      → Multiplication, Division, Floor Div, Modulus
+5.  + -           → Addition, Subtraction
+6.  << >>         → Bitwise Shifts
+7.  &             → Bitwise AND
+8.  ^             → Bitwise XOR
+9.  |             → Bitwise OR
 10. == != > < >= <=  → Comparisons
 11. is / is not      → Identity
 12. in / not in      → Membership
-13. not        → Logical NOT
-14. and        → Logical AND
-15. or         → Logical OR (lowest priority)
+13. not           → Logical NOT
+14. and           → Logical AND
+15. or            → Logical OR (lowest priority)
 ```
 
 ```python
-# Example: what does this evaluate to?
-print(2 + 3 * 4)        # Output: 14  (* before +)
-print((2 + 3) * 4)      # Output: 20  (parentheses first)
-print(2 ** 3 ** 2)      # Output: 512 (** is right-associative: 3**2=9, then 2**9)
+print(2 + 3 * 4)        # Output: 14   (* before +)
+print((2 + 3) * 4)      # Output: 20   (parentheses first)
+print(2 ** 3 ** 2)      # Output: 512  (** is right-associative: 3**2=9, 2**9=512)
 print(True and 5 > 3)   # Output: True (> before and)
 ```
+
+---
+
+## Interview Short Answers
+
+**Q: What is the difference between `/` and `//`?**
+> `/` always returns a float — even if both operands are integers (`10 / 2` gives `5.0`). `//` is floor division — it divides and rounds down to the nearest integer (`10 // 3` gives `3`, `-7 // 2` gives `-4` not `-3`).
+
+**Q: What is short-circuit evaluation?**
+> Python stops evaluating a logical expression as soon as the result is determined. With `and`, if the first operand is falsy, Python returns it immediately without checking the second. With `or`, if the first operand is truthy, Python returns it immediately. This is used for default values: `name = user_input or "Guest"`.
+
+**Q: What does `and`/`or` actually return?**
+> They don't always return `True` or `False` — they return one of the operands. `and` returns the first falsy value, or the last value if all are truthy. `or` returns the first truthy value, or the last value if all are falsy. For example, `5 and 10` returns `10`, and `0 or "hello"` returns `"hello"`.
+
+**Q: What is the walrus operator?**
+> The walrus operator `:=` was introduced in Python 3.8. It assigns a value to a variable and returns it in the same expression. It is useful when you need to compute a value, check it in a condition, and use it inside the block — avoiding computing it twice.
+
+**Q: What is the difference between `==` and `is`?**
+> `==` compares values — checks if two objects contain the same data. `is` compares identity — checks if two variables point to the exact same object in memory. Always use `==` for value comparison. Only use `is` to check against `None`.
+
+**Q: How do you check if a number is even using bitwise operators?**
+> Use `n & 1`. If the result is `0`, the number is even. If it is `1`, the number is odd. This works because the last bit of any even number in binary is always `0`, and the last bit of any odd number is always `1`.
