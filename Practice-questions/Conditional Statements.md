@@ -385,6 +385,29 @@ if (acc_num == account_num):
         print("Enter the correct pin")
 else:
     print("Enter the correct account number")
+# or
+# Simple Banking System
+acc_num = int(input("Enter The Account number: "))
+account = 123456789
+passw = 1234
+balance = 50000
+if acc_num == account:
+    print(f"Account Number {acc_num} is correct, Now enter the password")
+    password = int(input("enter the password: "))
+    if password == passw:
+        print("Password Is correct")
+        withdraw = int(input("enter the amt to with draw: "))
+        if withdraw <= balance and withdraw > 0:
+            print("login successfull")
+            balance -= withdraw
+            print(f"The amt withdrawn is {withdraw} and the balance is {balance}")
+        else:
+            print("Entered amt is more than the balance")
+    else:
+        print("reenter the password")
+else:
+    print("Enter the correct account number")
+
 ```
 **Sample input:** `123456789`, `4522`, `1000`
 **Output:**
