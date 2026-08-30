@@ -1,6 +1,6 @@
 # Python Practice: Data Types, Type Conversion & Strings
 
-Daily practice problems on Python's built-in data types, type conversion, and string handling.
+practice problems on Python's built-in data types, type conversion, and string handling.
 
 Click a question to jump straight to its solution and sample output. Try solving it yourself first! If you spot a bug, have a better approach, or have a doubt about any solution — open an issue or drop a comment.
 
