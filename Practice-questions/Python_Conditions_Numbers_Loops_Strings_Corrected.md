@@ -431,6 +431,19 @@ while password != "aj123":
     password = input("Enter password: ")
 
 print("Login successful!")
+
+# or
+password = int(input("password"))
+passw = 1234
+count = 1
+while password != passw and count <= 5:
+    print("wrong password")
+    password = int(input("password"))
+    count += 1
+if password == passw:
+    print("lgon successful")
+else:
+    print("you reached maximun attempt")
 ```
 
 ---
