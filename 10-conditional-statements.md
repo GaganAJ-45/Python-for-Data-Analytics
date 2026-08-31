@@ -1,171 +1,207 @@
-## **Conditional Statements in Python: `if`, `elif`, and `else`**
+# Conditional Statements in Python
+
+## What are Conditional Statements?
+
+Conditional statements allow your program to **make decisions** — execute different blocks of code based on whether a condition is `True` or `False`.
+
+```
+Condition True  → execute this block
+Condition False → execute that block
+```
+
+Python has three conditional keywords:
+- `if` — check a condition
+- `elif` — check another condition if previous was False
+- `else` — run if no condition was True
+
 ---
-In programming, **conditional statements** are used to perform different actions based on different conditions. Python uses `if`, `elif`, and `else` statements to allow your program to make decisions.
 
-### **1. The `if` Statement**
+## 1. The `if` Statement
 
+Execute a block **only if** the condition is `True`.
 
-The `if` statement is used to test a condition. If the condition is **True**, the block of code under the `if` statement is executed.
-
-#### **Syntax**:
+**Syntax:**
 ```python
 if condition:
-    # Code block to execute if the condition is True
+    # runs only when condition is True
 ```
-
-#### **Example**:
-Let's say you want to check if it's time for dinner (assuming dinner time is 8 PM).
 
 ```python
-time = 20  # 20 represents 8 PM in 24-hour format
+time = 20   # 8 PM in 24-hour format
+
 if time == 20:
     print("It's time for dinner!")
+# Output: It's time for dinner!
 ```
 
-Here, the program checks if the variable `time` is equal to 20 (8 PM). If it's 20, the message `"It's time for dinner!"` is printed.
+```python
+age = 20
+if age >= 18:
+    print("Eligible to vote")
+    print("Remember to bring your voter ID")
+# Both lines run — both belong to the if block (indented)
+```
 
-### **2. The `else` Statement**
+---
 
-The `else` statement provides an alternative block of code to execute when the `if` condition is **False**.
+## 2. The `else` Statement
 
-#### **Syntax**:
+Provides an **alternative block** when the `if` condition is `False`.
+
+**Syntax:**
 ```python
 if condition:
-    # Code block if the condition is True
+    # runs when True
 else:
-    # Code block if the condition is False
+    # runs when False
 ```
 
-#### **Example**:
-Let's extend the dinner example by adding an alternative action if it's not 8 PM.
-
 ```python
-time = 18  # 6 PM
+time = 18   # 6 PM
+
 if time == 20:
-    print("It's time for dinner!")
-else:
-    print("It's not dinner time yet.")
-```
-
-If the condition (`time == 20`) is False (because the time is 6 PM), the program prints `"It's not dinner time yet."`
-
-### **3. The `elif` Statement**
-
-The `elif` (short for "else if") statement checks another condition if the previous `if` or `elif` condition was False. You can have multiple `elif` statements to test various conditions.
-
-#### **Syntax**:
-```python
-if condition1:
-    # Code block if condition1 is True
-elif condition2:
-    # Code block if condition2 is True
-else:
-    # Code block if none of the above conditions are True
-```
-
-#### **Example**:
-Let’s create a system to check meal times based on the time of the day:
-
-```python
-time = 15  # 3 PM
-
-if time == 8:
-    print("It's breakfast time!")
-elif time == 13:
-    print("It's lunch time!")
-elif time == 20:
     print("It's dinner time!")
 else:
-    print("It's not a meal time.")
+    print("It's not dinner time yet.")
+# Output: It's not dinner time yet.
 ```
-
-Here, the program checks multiple conditions:
-- If the time is 8 AM, it prints `"It's breakfast time!"`.
-- If the time is 1 PM, it prints `"It's lunch time!"`.
-- If the time is 8 PM, it prints `"It's dinner time!"`.
-- If none of these conditions are true, it prints `"It's not a meal time."`
-
-### **4. Comparison Operators in `if` Statements**
-
-You can use **comparison operators** to compare values in `if` statements:
-
-- `==`: Equal to
-- `!=`: Not equal to
-- `<`: Less than
-- `>`: Greater than
-- `<=`: Less than or equal to
-- `>=`: Greater than or equal to
-
-#### **Example**:
-Let’s check if someone is eligible to vote in Karnataka (minimum age for voting is 18).
-
-```python
-age = 19
-
-if age >= 18:
-    print("You are eligible to vote.")
-else:
-    print("You are not eligible to vote.")
-```
-
-Here, the condition `age >= 18` checks if the age is greater than or equal to 18. If True, it prints that the person is eligible to vote. Otherwise, it prints that they are not eligible.
-
-### **5. Logical Operators in `if` Statements**
-
-You can also use **logical operators** to combine multiple conditions in `if` statements:
-
-- `and`: Returns True if both conditions are True
-- `or`: Returns True if at least one condition is True
-- `not`: Reverses the result of a condition
-
-#### **Example**:
-Let’s say you want to check if someone is eligible for a student discount. The person must be both under 18 years of age and have a student ID.
 
 ```python
 age = 16
-has_student_id = True
-
-if age < 18 and has_student_id:
-    print("You are eligible for the student discount!")
+if age >= 18:
+    print("Eligible to vote")
 else:
-    print("You are not eligible for the student discount.")
+    print("Not eligible to vote")
+# Output: Not eligible to vote
 ```
-
-Here, the condition `age < 18 and has_student_id` checks if both conditions are True. If so, the message `"You are eligible for the student discount!"` is printed.
 
 ---
 
-### **6. Example: Checking Bus Ticket Prices**
+## 3. The `elif` Statement
 
-Let’s create an example based on ticket prices for a Karnataka KSRTC bus. If the passenger is under 5 years old, the ticket is free. If the passenger is between 5 and 12 years old, they get a child discount. If the passenger is 60 years or older, they get a senior citizen discount. Otherwise, they pay the full fare.
+Check **another condition** if the previous one was `False`. You can chain as many `elif` blocks as needed.
 
+**Syntax:**
+```python
+if condition1:
+    # runs if condition1 is True
+elif condition2:
+    # runs if condition2 is True
+elif condition3:
+    # runs if condition3 is True
+else:
+    # runs if none were True
+```
+
+```python
+time = 15   # 3 PM
+
+if time == 8:
+    print("Breakfast time!")
+elif time == 13:
+    print("Lunch time!")
+elif time == 20:
+    print("Dinner time!")
+else:
+    print("Not a meal time.")
+# Output: Not a meal time.
+```
+
+> **Important:** Python checks conditions **top to bottom** and stops at the **first True** condition. Remaining `elif` and `else` blocks are skipped.
+
+---
+
+## 4. Real-World Examples
+
+### KSRTC Bus Ticket Pricing
 ```python
 age = 65
 
 if age < 5:
-    print("Ticket is free.")
+    print("Ticket is free")
 elif age <= 12:
-    print("You get a child discount.")
+    print("Child discount applied")
 elif age >= 60:
-    print("You get a senior citizen discount.")
+    print("Senior citizen discount applied")
 else:
-    print("You pay the full fare.")
+    print("Full fare")
+# Output: Senior citizen discount applied
 ```
 
-In this example:
-- If the passenger is younger than 5 years, the output is `"Ticket is free."`
-- If they are 5 to 12 years old, it prints `"You get a child discount."`
-- If they are 60 or older, it prints `"You get a senior citizen discount."`
-- For all other ages, it prints `"You pay the full fare."`
+### Grade Calculator
+```python
+marks = 85
+
+if marks >= 90:
+    print("Grade A — Distinction")
+elif marks >= 80:
+    print("Grade B — First Class")
+elif marks >= 70:
+    print("Grade C — Second Class")
+elif marks >= 50:
+    print("Grade D — Pass")
+else:
+    print("Grade F — Fail")
+# Output: Grade B — First Class
+```
+
+### Check Positive, Negative, or Zero
+```python
+num = int(input("Enter a number: "))
+
+if num > 0:
+    print("Positive")
+elif num < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
 
 ---
 
-### **7. Nested `if` Statements**
+## 5. Logical Operators in Conditions
 
-You can also use `if` statements inside other `if` statements. This is called **nesting**.
+Combine multiple conditions using `and`, `or`, `not`.
 
-#### **Example**:
-Let’s say you’re planning to visit Mysuru. You want to decide whether to go based on the day of the week and the weather.
+```python
+# and — BOTH must be True
+age = 16
+has_student_id = True
+
+if age < 18 and has_student_id:
+    print("Eligible for student discount")
+# Output: Eligible for student discount
+
+# or — AT LEAST ONE must be True
+day = "Saturday"
+if day == "Saturday" or day == "Sunday":
+    print("It's the weekend!")
+# Output: It's the weekend!
+
+# not — REVERSES the condition
+is_raining = False
+if not is_raining:
+    print("Good day to go out!")
+# Output: Good day to go out!
+```
+
+### Safe Chaining with Short-Circuit Evaluation
+```python
+# Short-circuit prevents error — if name is empty, second check is skipped
+name = ""
+if name and name.startswith("A"):
+    print(f"Name starts with A: {name}")
+else:
+    print("No valid name")
+# Output: No valid name
+# If name="" (falsy), Python skips name.startswith("A") entirely
+```
+
+---
+
+## 6. Nested `if` Statements
+
+An `if` inside another `if` — use when decisions depend on multiple levels.
 
 ```python
 day = "Saturday"
@@ -177,70 +213,341 @@ if day == "Saturday" or day == "Sunday":
     else:
         print("It's raining, let's stay home.")
 else:
-    print("It's a weekday, let's wait for the weekend.")
+    print("It's a weekday, wait for the weekend.")
+# Output: Let's visit Mysuru!
 ```
 
-Here, the program first checks if it’s a weekend. If it is, it checks the weather. If it’s not raining, it prints `"Let's visit Mysuru!"`, otherwise, it prints `"It's raining, let's stay home."` On weekdays, it prints `"It's a weekday, let's wait for the weekend."`
+### Banking System — Nested Conditions
+```python
+account_num = 123456789
+pin         = 4522
+balance     = 50000
+
+acc_input = int(input("Account number: "))
+pin_input = int(input("PIN: "))
+withdraw  = int(input("Amount to withdraw: "))
+
+if acc_input == account_num:
+    if pin_input == pin:
+        if withdraw > balance:
+            print("Insufficient balance")
+        elif withdraw <= 0:
+            print("Invalid amount")
+        else:
+            balance -= withdraw
+            print(f"Withdrawn ₹{withdraw}. Balance: ₹{balance}")
+    else:
+        print("Incorrect PIN")
+else:
+    print("Account not found")
+```
+
+> **Interview tip:** Deeply nested `if` statements (3+ levels) are a code smell. Try to flatten them using `and`/`or` or early returns in functions.
 
 ---
 
-### **8. Indentation in Python**
+## 7. Indentation in Python
 
-Python uses **indentation** (spaces at the beginning of a line) to define blocks of code. The indented code after an `if`, `elif`, or `else` statement belongs to that condition. Make sure to use consistent indentation to avoid errors.
+Python uses **indentation** (4 spaces) to define code blocks — NOT curly braces like Java/C.
 
-#### **Example**:
 ```python
-age = 19
+age = 20
 
 if age >= 18:
-    print("You are eligible to vote.")
-    print("Remember to bring your voter ID.")
-else:
-    print("You are not eligible to vote.")
+    print("Adult")         # inside if block
+    print("Can vote")      # also inside if block
+print("Program ends")      # outside if block — always runs
 ```
 
-In the example above, the two `print()` statements are part of the `if` block because they are indented. Be careful to maintain the correct indentation for your code to run correctly.
+```python
+# Wrong indentation — IndentationError
+if age >= 18:
+print("Adult")    # ❌ IndentationError — must be indented
+```
+
+> **Rule:** Everything at the same indentation level belongs to the same block. Python is strict about this — mixing tabs and spaces causes `TabError`.
 
 ---
 
-### **9. The `match-case` Statement (Python 3.10+)**
+## 8. Truthy and Falsy in Conditions
 
-Starting from Python 3.10, you can use the match-case statement for pattern matching—similar to switch-case in other languages like C or JavaScript. It helps you write cleaner and more readable code when checking a variable against multiple constant values.
+Any value can be used directly in an `if` condition — Python evaluates its truthiness.
 
-#### **Syntax**:
+**Falsy values** — evaluate to `False`:
+```python
+if 0:        print("runs")   # ❌ won't run — 0 is falsy
+if "":       print("runs")   # ❌ won't run — empty string is falsy
+if []:       print("runs")   # ❌ won't run — empty list is falsy
+if None:     print("runs")   # ❌ won't run — None is falsy
+```
 
+**Truthy values** — everything else:
+```python
+if 1:        print("runs")   # ✅ runs
+if "hello":  print("runs")   # ✅ runs
+if [1, 2]:   print("runs")   # ✅ runs
+```
+
+**Real use — checking if a list or string has content:**
+```python
+name = input("Enter name: ")
+if name:                      # cleaner than: if name != ""
+    print(f"Hello {name}")
+else:
+    print("No name entered")
+
+cart = []
+if not cart:                  # cleaner than: if len(cart) == 0
+    print("Your cart is empty")
+```
+
+---
+
+## 9. Ternary Operator — One-Line `if-else`
+
+Assign a value based on a condition in one line.
+
+**Syntax:**
+```python
+value = result_if_true if condition else result_if_false
+```
+
+```python
+# Traditional
+num = 10
+if num % 2 == 0:
+    result = "even"
+else:
+    result = "odd"
+
+# Ternary — same in one line
+result = "even" if num % 2 == 0 else "odd"
+print(result)   # Output: even
+
+# More examples
+age    = 20
+status = "adult" if age >= 18 else "minor"
+print(status)   # Output: adult
+
+# In print directly
+num = 15
+print("Positive" if num > 0 else "Non-positive")   # Output: Positive
+
+# In a list comprehension
+numbers = [1, -2, 3, -4, 5]
+labels  = ["pos" if n > 0 else "neg" for n in numbers]
+print(labels)   # Output: ['pos', 'neg', 'pos', 'neg', 'pos']
+```
+
+> **Interview tip:** Ternary is clean for simple conditions. Don't use it for complex logic — it hurts readability.
+
+---
+
+## 10. The `pass` Statement
+
+`pass` is a **placeholder** — does nothing but prevents a syntax error when a block is required but you have no code to put there yet.
+
+```python
+age = 20
+
+if age >= 18:
+    pass    # TODO: add voting logic later
+else:
+    print("Not eligible")
+
+# Also used in empty functions/classes during development
+def process_data():
+    pass    # implement later
+```
+
+---
+
+## 11. `match-case` Statement (Python 3.10+)
+
+Pattern matching — cleaner alternative to long `if-elif` chains when checking one variable against multiple values. Similar to `switch-case` in C/Java.
+
+**Syntax:**
 ```python
 match variable:
     case value1:
-        # Code block for value1
+        # code
     case value2:
-        # Code block for value2
+        # code
     case _:
-        # Default case (like else)
+        # default (like else)
 ```
-
-#### **Example**:
-
-Let’s check the type of day using match-case.
 
 ```python
 day = "Sunday"
 
 match day:
     case "Monday":
-        print("Start of the work week.")
+        print("Start of work week")
     case "Friday":
         print("Almost weekend!")
-    case "Saturday" | "Sunday":
+    case "Saturday" | "Sunday":    # | means OR — matches either value
         print("It's the weekend!")
     case _:
-        print("Just another weekday.")
+        print("Just another weekday")
+# Output: It's the weekend!
 ```
 
-* If `day` is `"Sunday"` or `"Saturday"`, it prints `"It's the weekend!"`
-* The `_` is a wildcard that matches anything—like a default `else`.
+### Guard Conditions in `match-case`
+Add an extra condition using `if` inside a case:
 
-This is functionally similar to the earlier `if-elif` example but can be more readable when checking one variable against many constant values.
+```python
+num = 15
 
-> Note: Use match-case only if you're using Python 3.10 or newer. It’s not available in earlier versions.
+match num:
+    case x if x < 0:
+        print("Negative")
+    case x if x == 0:
+        print("Zero")
+    case x if x % 2 == 0:
+        print("Positive even")
+    case x:
+        print("Positive odd")
+# Output: Positive odd
+```
+
+### Matching Data Types and Structures
+```python
+point = (0, 5)
+
+match point:
+    case (0, 0):
+        print("Origin")
+    case (0, y):
+        print(f"On Y-axis at y={y}")
+    case (x, 0):
+        print(f"On X-axis at x={x}")
+    case (x, y):
+        print(f"Point at ({x}, {y})")
+# Output: On Y-axis at y=5
+```
+
+> **When to use `match-case` vs `if-elif`:**
+> - Use `match-case` when checking **one variable** against **multiple fixed values**
+> - Use `if-elif` when conditions involve **multiple variables** or **complex expressions**
+
 ---
+
+## 12. Common Patterns in Interviews
+
+### Input Validation Pattern
+```python
+age = int(input("Enter age: "))
+
+if age < 0:
+    print("Invalid — age cannot be negative")
+elif age < 18:
+    print("Minor")
+elif age < 60:
+    print("Adult")
+else:
+    print("Senior citizen")
+```
+
+### Check Divisibility (FizzBuzz — most asked interview question)
+```python
+for num in range(1, 21):
+    if num % 3 == 0 and num % 5 == 0:
+        print("FizzBuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("Buzz")
+    else:
+        print(num)
+```
+
+> **FizzBuzz is literally the most common first-round interview question.** Know it cold.
+
+### Login System Pattern
+```python
+username = input("Username: ")
+password = input("Password: ")
+
+correct_user = "aj_kumar"
+correct_pass = "secure123"
+
+if username == correct_user and password == correct_pass:
+    print("Login successful")
+elif username != correct_user:
+    print("Invalid username")
+else:
+    print("Incorrect password")
+```
+
+---
+
+## Quick Reference
+
+```python
+# Basic if
+if condition:
+    code
+
+# if-else
+if condition:
+    code
+else:
+    code
+
+# if-elif-else
+if condition1:
+    code
+elif condition2:
+    code
+else:
+    code
+
+# Ternary
+value = x if condition else y
+
+# Nested
+if condition1:
+    if condition2:
+        code
+
+# Truthy check
+if variable:          # True if non-empty, non-zero, not None
+if not variable:      # True if empty, zero, or None
+
+# pass placeholder
+if condition:
+    pass
+
+# match-case (Python 3.10+)
+match variable:
+    case value1:
+        code
+    case value2 | value3:    # OR pattern
+        code
+    case x if x > 0:         # guard condition
+        code
+    case _:                  # default
+        code
+```
+
+---
+
+## Interview Short Answers
+
+**Q: What is the difference between `if-elif-else` and multiple `if` statements?**
+> With `if-elif-else`, Python stops checking as soon as one condition is `True` — only one block runs. With multiple separate `if` statements, Python checks every condition independently — multiple blocks can run. Use `if-elif-else` when conditions are mutually exclusive, and separate `if` statements when each condition is independent.
+
+**Q: What is a ternary operator in Python?**
+> Python's ternary operator is written as `value = x if condition else y`. It assigns `x` if the condition is `True`, otherwise `y`. It is a one-line alternative to a simple `if-else` assignment. For example, `result = "even" if num % 2 == 0 else "odd"`.
+
+**Q: What does `pass` do in Python?**
+> `pass` is a null statement — it does nothing. It is used as a placeholder when a code block is syntactically required but you have no logic to put there yet. For example, inside an empty `if` block or a function you plan to implement later.
+
+**Q: What is `match-case` in Python?**
+> `match-case` is Python's pattern matching statement introduced in Python 3.10. It checks a variable against multiple patterns and runs the matching block. The `_` wildcard acts as a default case. It is similar to `switch-case` in C or Java but more powerful — it supports OR patterns with `|`, guard conditions with `if`, and structural pattern matching.
+
+**Q: What is FizzBuzz?**
+> FizzBuzz is a classic programming interview problem. Print numbers from 1 to N, but print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both. The key insight is to check `num % 3 == 0 and num % 5 == 0` first — before the individual checks — otherwise numbers like 15 would incorrectly print "Fizz" instead of "FizzBuzz".
+
+**Q: What does Python use for indentation and why does it matter?**
+> Python uses 4 spaces for indentation to define code blocks — unlike Java or C which use curly braces. Indentation is not just style in Python — it is syntax. Incorrect indentation raises an `IndentationError` or `TabError`. Mixing tabs and spaces is not allowed.
