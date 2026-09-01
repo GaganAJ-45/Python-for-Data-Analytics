@@ -1,7 +1,4 @@
 # Dictionaries in Python
-> Foundation Notes — Interview Ready | DSA Focused
-
----
 
 ## 1. What is a Dictionary?
 
