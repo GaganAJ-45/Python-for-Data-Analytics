@@ -1,7 +1,4 @@
 # Functions in Python — Basics
-> Foundation Notes — Interview Ready | DSA Focused
-
----
 
 ## 1. What is a Function?
 
