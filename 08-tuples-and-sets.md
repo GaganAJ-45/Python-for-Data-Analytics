@@ -3,7 +3,6 @@
 ## PART 1 — TUPLES
 
 ---
-
 ## 1. What is a Tuple?
 
 A tuple is a collection of items that is:
