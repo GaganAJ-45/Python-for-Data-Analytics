@@ -1,7 +1,5 @@
 ### **Introduction to OOP Concepts & Classes/Objects**
 
-In this video, we will begin our journey into Object-Oriented Programming (OOP) with the foundational concepts of classes and objects.
-
 ---
 
 ### **1. What is Object-Oriented Programming (OOP)?**
