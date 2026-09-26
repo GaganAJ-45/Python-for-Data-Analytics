@@ -48,6 +48,7 @@ print(id(s1) == id(s2))  # Output: False — different memory addresses
 ## 3. `__init__` — Constructor
 
 `__init__` is called **automatically** when an object is created. It initializes the object's attributes.
+or `__init__` is special method in python it initializes an object when its created. Its called automatically when create a new instance of a class
 
 ```python
 class Student:
