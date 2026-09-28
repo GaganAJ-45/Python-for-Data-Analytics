@@ -1,7 +1,5 @@
 # Introduction to Python Programming
 
----
-
 ## 1. What is Python?
 
 Python is a **high-level, interpreted, dynamically typed, and object-oriented** programming language known for its simplicity and readability. It allows developers to write clear programs for both small and large-scale projects.
