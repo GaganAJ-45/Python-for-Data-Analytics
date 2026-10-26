@@ -233,7 +233,8 @@ print(acc.get_balance())      # Output: 15000
 acc.withdraw(3000)
 print(acc.get_balance())      # Output: 12000
 ```
-
+---
+---
 ### Property — Pythonic getter/setter
 
 ```python
