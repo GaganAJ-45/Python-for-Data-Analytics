@@ -103,23 +103,290 @@ Same class, different objects, different memory locations
 
 ## 4. `__init__` — Constructor
 
-`__init__` is a special method called automatically when an object is created. It **initializes** the object's attributes.
+A constructor is a special method used to initialize an object when it is created.
+
+Python uses the `__init__()` method to initialize object attributes.
+
+### Syntax
+
+```python
+class ClassName:
+
+    def __init__(self):
+        # Initialization statements
+        pass
+```
+
+## 2. Types of Constructors in Python
+
+There are two commonly discussed types of constructors:
+
+1. Default (Non-Parameterized) Constructor
+2. Parameterized Constructor
+
+---
+
+## 2.1 Default Constructor
+
+### Definition
+
+A default (non-parameterized) constructor does not accept any additional arguments apart from `self`.
+
+It initializes objects with predefined values.
+
+### Example
 
 ```python
 class Student:
-    def __init__(self, name, age, marks):
-        self.name  = name     # initialize instance attributes
-        self.age   = age
-        self.marks = marks
 
-# Creating objects — __init__ is called automatically
-s1 = Student("AJ", 22, 85)
-s2 = Student("Rahul", 21, 92)
+    def __init__(self):
+        print("Student object created")
 
-print(s1.name)    # Output: AJ
-print(s1.age)     # Output: 22
-print(s2.marks)   # Output: 92
+    def display(self):
+        print("Welcome to Python")
+
+
+s1 = Student()
+
+s1.display()
 ```
+
+### Output
+
+```text
+Student object created
+Welcome to Python
+```
+
+### Explanation
+
+- `class Student` creates a class.
+- `__init__()` initializes the object.
+- `self` refers to the current object.
+- The constructor does not accept additional arguments.
+- The constructor is called automatically when an object is created.
+
+### Use Cases
+
+- Initializing default application settings.
+- Setting default account values.
+- Initializing counters.
+- Setting default status values.
+
+### Example: Bank Account
+
+```python
+class BankAccount:
+
+    def __init__(self):
+        self.balance = 0
+        self.account_type = "Savings"
+
+    def display(self):
+        print("Balance:", self.balance)
+        print("Account Type:", self.account_type)
+
+
+account = BankAccount()
+
+account.display()
+```
+
+### Output
+
+```text
+Balance: 0
+Account Type: Savings
+```
+
+---
+
+## 2.2 Parameterized Constructor
+
+### Definition
+
+A parameterized constructor accepts arguments to initialize an object with specific values.
+
+Different objects can have different initial values.
+
+### Example
+
+```python
+class Student:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+
+s1 = Student("Ajay", 22)
+s2 = Student("Rahul", 23)
+
+s1.display()
+s2.display()
+```
+
+### Output
+
+```text
+Name: Ajay
+Age: 22
+
+Name: Rahul
+Age: 23
+```
+
+### Explanation
+
+- `name` and `age` are constructor parameters.
+- `"Ajay"` and `22` are arguments passed during object creation.
+- `self.name = name` assigns the parameter value to the object's attribute.
+- Each object maintains its own attribute values.
+
+### Use Cases
+
+- Creating customer profiles.
+- Registering students.
+- Creating employee records.
+- Initializing product details.
+- Creating bank accounts with customer-specific information.
+
+### Example: Employee Management
+
+```python
+class Employee:
+
+    def __init__(self, name, employee_id, salary):
+        self.name = name
+        self.employee_id = employee_id
+        self.salary = salary
+
+    def display(self):
+        print("Name:", self.name)
+        print("Employee ID:", self.employee_id)
+        print("Salary:", self.salary)
+
+
+emp1 = Employee("Ajay", 101, 30000)
+emp2 = Employee("Rahul", 102, 40000)
+
+emp1.display()
+emp2.display()
+```
+
+### Output
+
+```text
+Name: Ajay
+Employee ID: 101
+Salary: 30000
+
+Name: Rahul
+Employee ID: 102
+Salary: 40000
+```
+
+---
+
+## 3. Changing Default Values
+
+We can change default values in two ways.
+
+### Method 1: Changing Values After Object Creation
+
+```python
+class BankAccount:
+
+    def __init__(self):
+        self.balance = 0
+        self.account_type = "Savings"
+
+
+account = BankAccount()
+
+account.balance = 5000
+account.account_type = "Current"
+
+print(account.balance)
+print(account.account_type)
+```
+
+### Output
+
+```text
+5000
+Current
+```
+
+Here, we modify the object's attributes using its object name.
+
+### Method 2: Changing Values During Object Creation
+
+We can define default parameter values inside the constructor.
+
+```python
+class BankAccount:
+
+    def __init__(self, balance=0, account_type="Savings"):
+        self.balance = balance
+        self.account_type = account_type
+
+
+account1 = BankAccount()
+
+account2 = BankAccount(5000, "Current")
+
+print(account1.balance, account1.account_type)
+print(account2.balance, account2.account_type)
+```
+
+### Output
+
+```text
+0 Savings
+5000 Current
+```
+
+Here:
+
+- `account1` uses the default values.
+- `account2` overrides the default values by passing arguments.
+
+---
+
+## 4. Difference Between Default and Parameterized Constructors
+
+| Default Constructor | Parameterized Constructor |
+|---|---|
+| Does not accept additional arguments. | Accepts additional arguments. |
+| Initializes objects with predefined values. | Initializes objects using supplied values. |
+| Uses only `self` as a parameter. | Uses `self` along with other parameters. |
+| External input is not required. | External input can be provided. |
+| Example: `Student()` | Example: `Student("Ajay", 22)` |
+| Use case: Default application settings. | Use case: Student registration. |
+
+---
+
+## 5. Important Points to Remember
+
+1. A constructor initializes an object's attributes.
+2. Python uses the `__init__()` method for object initialization.
+3. The `__init__()` method is called automatically when an object is created.
+4. `self` refers to the current object.
+5. Default constructors initialize objects without additional arguments.
+6. Parameterized constructors accept arguments during object creation.
+7. Different objects can have different attribute values.
+8. Constructor parameters can have default values that can be overridden.
+
+### Important Technical Note
+
+Technically, `__new__()` creates an object, whereas `__init__()` initializes the created object.
+
+In beginner-level Python terminology, `__init__()` is commonly referred to as the constructor.
 
 **What `self` means:**
 ```python
